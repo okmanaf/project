@@ -1,0 +1,26 @@
+<div class="form-container">
+    <h2>Add Session</h2>
+    <form (submit)="handleFormSubmit($event)">
+      <label>Course Code:
+        <input id="courseCode" required />
+      </label>
+  
+      <label>Instructor:
+        <input id="instructor" required />
+      </label>
+  
+      <label>Campus:
+        <select id="campus">
+          <option value="Abu Dhabi">Abu Dhabi</option>
+          <option value="Al Ain">Al Ain</option>
+        </select>
+      </label>
+  
+      <label>Slot:
+        <input id="slot" required />
+      </label>
+  
+      <button type="submit">Add Session</button>
+    </form>
+  </div>
+  
