@@ -1,12 +1,17 @@
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { AddSessionComponent } from './app.services/add-session/add-session.component';
+import { CommonModule } from '@angular/common';
+import { initializeApp } from "firebase/app";
+import { getAnalytics } from "firebase/analytics";
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet],
+  standalone: true,
+  imports: [AddSessionComponent],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
+  styleUrls: []
 })
 export class AppComponent {
-  title = 'CourseRegistrationApp';
+  title = 'Course Registration App';
 }
+console.log('Image path:', 'assets/images/your-image.jpg');

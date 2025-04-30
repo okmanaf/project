@@ -1,0 +1,27 @@
+
+  h1 {
+    text-align: center;
+    margin-top: 2rem;
+    font-family: 'Times New Roman', Times, serif, sans-serif;
+    color: #000000;
+  }
+  
+  body {
+    background-image: url('src\app\assets\images\2021-02-02.webp');
+    background-size: cover;       /* Ensures image covers entire background */
+    background-position: center; /* Centers the image */
+    background-repeat: no-repeat; /* Prevents tiling */
+    background-attachment: fixed; /* Optional: Makes background fixed on scroll */
+    margin: 0;                   /* Removes default margin */
+    min-height: 100vh;           /* Ensures full viewport height */
+    color: white;                /* If text needs to be visible on dark bg */
+    font-family: Arial, sans-serif; /* Improves readability */
+}
+.background-container {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  min-height: 100vh;  /* Full viewport height */
+  padding: 20px;      /* Space for content */
+}
+

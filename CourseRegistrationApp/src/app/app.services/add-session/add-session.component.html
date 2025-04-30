@@ -1,0 +1,91 @@
+<div class="form-container">
+  <h2>Add Course Session</h2>
+  <form (submit)="handleFormSubmit($event)">
+    <!-- Student ID Section -->
+    <div class="form-step active" id="step1">
+      <label>Student ID:
+        <input id="studentId" required 
+               type="text"
+               [(ngModel)]="studentId" 
+               name="studentId"
+               (input)="validateStudentId()" />
+        <span class="error" *ngIf="studentIdError">{{studentIdError}}</span>
+      </label>
+      <button type="button" (click)="proceedToMajor()" [disabled]="!studentIdValid">Next</button>
+    </div>
+
+    <!-- Major Selection (initially hidden) -->
+    <div class="form-step" id="step2" [class.active]="step >= 2">
+      <label>Major:
+        <select id="major" required
+                [(ngModel)]="selectedMajor" 
+                name="major"
+                [disabled]="step < 2"
+                (change)="selectedMajor && proceedToCampus()">
+          <option value="" disabled selected>Select your major</option>
+          <option value="BSC of Computer Engineering">BSC of Computer Engineering</option>
+          <option value="BSC of Electrical Engineering">BSC of Electrical Engineering</option>
+        </select>
+      </label>
+      <button type="button" (click)="proceedToCourse()" [disabled]="!selectedMajor">Next</button>
+    </div>
+
+    <!-- Campus Selection (initially hidden) -->
+    <div class="form-step" id="step3" [class.active]="step >= 3">
+      <label>Campus:
+        <select id="campus" required
+                [(ngModel)]="selectedCampus" 
+                name="campus"
+                [disabled]="step < 3"
+                (change)="selectedCampus && proceedToCourse()">
+          <option value="" disabled selected>Select your campus</option>
+          <option value="Abu Dhabi">Abu Dhabi</option>
+          <option value="Al Ain">Al Ain</option>
+        </select>
+      </label>
+      <button type="button" (click)="proceedToSession()" [disabled]="!selectedCampus">Next</button>
+    </div>
+
+    <!-- Course Code (initially hidden) -->
+    <div class="form-step" id="step4" [class.active]="step >= 4">
+      <label>Course Code:
+        <input id="courseCode" required
+               [(ngModel)]="courseCode" 
+               name="courseCode"
+               [disabled]="step < 4"
+               (input)="fetchCourseDetails()" />
+      </label>
+      <button type="button" (click)="proceedToSession()" [disabled]="!courseCode">Next</button>
+    </div>
+
+    <!-- Session Selection (initially hidden) -->
+    <div class="form-step" id="step5" [class.active]="step >= 5">
+      <label>Instructor:
+        <select id="instructor" required
+                [(ngModel)]="selectedInstructor" 
+                name="instructor"
+                [disabled]="step < 5 || !instructors.length">
+          <option value="" disabled selected>Select instructor</option>
+          <option *ngFor="let instructor of instructors" [value]="instructor">
+            {{instructor}}
+          </option>
+        </select>
+      </label>
+
+      <label>Time Slot:
+        <select id="slot" required
+                [(ngModel)]="selectedSlot" 
+                name="slot"
+                [disabled]="step < 5 || !timeSlots.length">
+          <option value="" disabled selected>Select time slot</option>
+          <option *ngFor="let slot of timeSlots" [value]="slot">
+            {{slot}}
+          </option>
+        </select>
+      </label>
+
+      <button type="submit" [disabled]="!selectedInstructor || !selectedSlot">Add Session</button>
+    </div>
+  </form>
+</div>
+  

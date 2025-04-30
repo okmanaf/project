@@ -1,0 +1,8 @@
+"assets": [
+  "src/favicon.ico",
+  "src/asset  "src/manifest.webmanifest"s",
+
+]
+
+
+"assets": ["src/assets"]
