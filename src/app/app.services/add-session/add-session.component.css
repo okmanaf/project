@@ -1,0 +1,28 @@
+.form-container {
+    border: 1px solid #f1f1f1;
+    padding: 1rem;
+    border-radius: 8px;
+    width: 300px;
+  }
+  
+  label {
+    display: block;
+    margin: 0.5rem 0;
+  }
+  
+  input, select {
+    width: 100%;
+    padding: 0.3rem;
+    margin-top: 0.2rem;
+  }
+  
+  button {
+    margin-top: 1rem;
+    padding: 0.5rem;
+    width: 100%;
+    background-color: #11cc00;
+    color: rgb(255, 0, 0);
+    border: none;
+    border-radius: 4px;
+  }
+  
