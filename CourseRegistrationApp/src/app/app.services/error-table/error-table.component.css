@@ -1,0 +1,10 @@
+.error-container {
+    padding: 20px;
+    background: #fff3f3;
+    border-radius: 8px;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+  }
+  .error-row { background-color: #ffcdd2; }
+  .warning-row { background-color: #fff9c4; }
+  table { width: 100%; border-collapse: collapse; }
+  th, td { padding: 10px; border: 1px solid #ccc; }

@@ -1,0 +1,45 @@
+<div class="session-form">
+    <h2>Create a Session</h2>
+    <form (ngSubmit)="addSession()" #sessionForm="ngForm">
+      <label>Course/Procedure:
+        <input [(ngModel)]="newSession.course" name="course" required>
+      </label>
+      <label>Instructor/Surgeon:
+        <input [(ngModel)]="newSession.instructor" name="instructor" required>
+      </label>
+      <label>Session ID:
+        <input type="number" [(ngModel)]="newSession.id" name="id" required>
+      </label>
+      <label>Capacity/Equipment Type:
+        <select [(ngModel)]="newSession.capacity" name="capacity">
+          <option>Regular</option>
+          <option>Large</option>
+          <option>Mega</option>
+          <option>Standard</option>
+          <option>Extended</option>
+          <option>Specialized</option>
+        </select>
+      </label>
+      <label>Slot Number:
+        <input type="number" [(ngModel)]="newSession.slot" name="slot" min="1" max="14" required>
+      </label>
+      <label>Campus:
+        <select [(ngModel)]="newSession.campus" name="campus">
+          <option>Abu Dhabi</option>
+          <option>Al Ain</option>
+        </select>
+      </label>
+      <button type="submit">Add Session</button>
+    </form>
+  </div>
+  
+  <div class="session-list">
+    <h2>Session List</h2>
+    <ul *ngIf="sessions.length > 0">
+      <li *ngFor="let session of sessions; index as i">
+        {{ session.course }} - {{ session.instructor }} - Slot {{ session.slot }} ({{ session.campus }})
+        <button class="delete-btn" (click)="deleteSession(i)">❌</button>
+      </li>
+    </ul>
+    <p *ngIf="sessions.length === 0">No sessions added yet.</p>
+  </div>

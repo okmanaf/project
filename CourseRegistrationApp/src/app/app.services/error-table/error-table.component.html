@@ -1,0 +1,14 @@
+<div class="error-container">
+    <h2>Schedule Errors & Warnings</h2>
+    <table>
+      <thead>
+        <tr><th>Type</th><th>Message</th></tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let err of errors" [ngClass]="getRowClass(err.type)">
+          <td>{{ err.type }}</td>
+          <td>{{ err.message }}</td>
+        </tr>
+      </tbody>
+    </table>
+</div>

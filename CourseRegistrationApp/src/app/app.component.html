@@ -3,4 +3,22 @@
     <app-add-session></app-add-session>
     <img src="src\app\assets\images\2021-02-02.webp" alt="Background Image">>
 </div>
- 
+ <!-- app.component.html -->
+<div class="app-container">
+    <h1>{{ title }}</h1>
+    
+    <!-- Add Session Component -->
+    <app-add-session></app-add-session>
+    
+    <!-- Error Table Component -->
+    <div class="component-section">
+      <h2>Schedule Issues</h2>
+      <app-error-table></app-error-table>
+    </div>
+    
+    <!-- Load Calculation Component -->
+    <div class="component-section">
+      <h2>Faculty Workload</h2>
+      <app-load-calculation></app-load-calculation>
+    </div>
+  </div>

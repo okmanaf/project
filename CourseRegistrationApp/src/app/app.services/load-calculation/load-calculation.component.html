@@ -1,0 +1,56 @@
+<div class="load-calculation-container">
+    <h2>Faculty/Surgeon Workload Distribution</h2>
+    
+    <div class="stats-container">
+      <div class="department-stats">
+        <h3>CEN/EEN Department</h3>
+        <p>Total Sessions: {{ getDepartmentStats('CEN/EEN').total }}</p>
+        <p>Average per Instructor: {{ getDepartmentStats('CEN/EEN').average | number:'1.1-1' }}</p>
+        <p>Instructors: {{ getDepartmentStats('CEN/EEN').instructors }}</p>
+      </div>
+      
+      <div class="department-stats">
+        <h3>BME Department</h3>
+        <p>Total Sessions: {{ getDepartmentStats('BME').total }}</p>
+        <p>Average per Instructor: {{ getDepartmentStats('BME').average | number:'1.1-1' }}</p>
+        <p>Instructors: {{ getDepartmentStats('BME').instructors }}</p>
+      </div>
+    </div>
+  
+    <table class="workload-table">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Department</th>
+          <th>Campus</th>
+          <th>Sessions</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let load of workloads" 
+            [class]="getStatusClass(load.loadStatus)"
+            (click)="toggleExpand(load.name)">
+          <td>{{ load.name }}</td>
+          <td>{{ load.department }}</td>
+          <td>{{ load.campus }}</td>
+          <td>{{ load.assignedSessions }} / {{ TARGET_LOAD }}</td>
+          <td>
+            <span class="status-indicator">{{ load.loadStatus }}</span>
+          </td>
+        </tr>
+        <tr *ngIf="expandedRow" class="expanded-details">
+          <td colspan="5">
+            <div *ngFor="let load of workloads">
+              <div *ngIf="load.name === expandedRow" class="session-details">
+                <h4>{{ load.name }}'s Sessions:</h4>
+                <ul>
+                  <li *ngFor="let session of load.sessions">{{ session }}</li>
+                </ul>
+              </div>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
